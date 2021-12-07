@@ -8,7 +8,6 @@ published: false
 
 :::message
 この記事は [弁護士ドットコム Advent Calendar 2021](https://qiita.com/advent-calendar/2021/bengo4com) の 18 日目の記事です。
-よろしくお願いします。
 :::
 
 # Supabase とは
@@ -57,3 +56,62 @@ npx create-next-app@latest --typescript
 ```
 
 # チュートリアルをやってみる
+
+<!-- Set up the database schema# -->
+- Set up the database schema#
+
+<!-- Get the API Keys# -->
+- Get the API Keys#
+
+- supabase-js のインストール
+
+```bash
+npm install @supabase/supabase-js
+```
+
+```text: .env.local
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxxxxxxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=xxxxxxxxxxxxxxxxxxxx
+```
+
+```ts: supabaseClient.ts
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl= process.env.NEXT_PUBLIC_SUPABASE_URL as string
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+```
+
+## テーブル作成
+
+## サインイン
+
+ユーザーは E メールまたは OAuth のいずれかでサインインできます。
+パスワードなしでメールを提供した場合、ユーザーにはマジックリンクが送信されます。(今回はこれ)
+
+```tsx: Auth.tsx
+const { error } = await supabase.auth.signIn({ email })
+```
+
+実際に下記のようなメールが送られてきました。
+![マジックリンクのメール](https://storage.googleapis.com/zenn-user-upload/9e1dd99cdf7e-20211206.png)
+
+サードパーティのプロバイダを利用したサインインは主に下記をサポートしています。(一部抜粋)
+
+- GitHub
+- Google
+- GitLab
+- Bitbucket
+
+## サインインしたユーザの情報表示
+
+```tsx: Account.tsx
+const user = supabase.auth.user()
+
+let { data, error, status } = await supabase
+    .from<definitions['profiles']>('profiles')
+    .select(`username, website, avatar_url`)
+    .eq('id', user.id)
+    .single()
+```
