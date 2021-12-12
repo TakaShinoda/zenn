@@ -108,9 +108,9 @@ https://github.com/supabase/supabase-js
 
 ```text: .env.local
 # Config URL
-NEXT_PUBLIC_SUPABASE_URL=https://njpurhbadbaebzwbwwyp.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://XXXXXXXXXXXXXXXXXXXX.supabase.co
 # API keys
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzODExMTQzMywiZXhwIjoxOTUzNjg3NDMzfQ.2oDN82WfOnmmDrELxL1i3Ugh442QXB1vLrLJwQfKvr0
+NEXT_PUBLIC_SUPABASE_ANON_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ```ts: supabaseClient.ts
