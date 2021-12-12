@@ -2,13 +2,27 @@
 title: 'supabase'
 emoji: '🦌'
 type: 'tech' # tech: 技術記事 / idea: アイデア
-topics: ['supabase', 'アドベントカレンダー']
+topics: ['supabase']
 published: false
 ---
 
 :::message
 この記事は [弁護士ドットコム Advent Calendar 2021](https://qiita.com/advent-calendar/2021/bengo4com) の 18 日目の記事です。
 :::
+
+# はじめに
+
+こんにちは。
+弁護士ドットコム株式会社 クラウドサイン事業本部 プロダクト部の篠田([@tttttt_621_s](https://twitter.com/tttttt_621_s))です。
+
+<!-- 前日は、[@komtaki](https://qiita.com/komtaki)さんの XXXXX でした！ -->
+
+前日は、XXXXX さんの XXXXX でした！
+
+私は、個人開発の際に Firebase を使うことがあるのですが、最近 Supabase というものを知ってこの機会にさわってみました。
+また、並行して Zenn への投稿も初めてやってみました。
+
+よろしくお願いします。
 
 # Supabase とは
 
@@ -37,41 +51,66 @@ Supabase コミュニティを構成するコミュニティと彼らのアッ�
 ## Supabase に登録・プロジェクト作成
 
 - 公式サイトから「Start your project」を選択
-  ![画像1](https://storage.googleapis.com/zenn-user-upload/9e14030a059a-20211204.png)
+
+![画像1](https://storage.googleapis.com/zenn-user-upload/9e14030a059a-20211204.png)
 
 - GitHub でログイン後、「New Project」を選択
-  ![画像2](https://storage.googleapis.com/zenn-user-upload/87faa5d13928-20211204.png)
+
+![画像2](https://storage.googleapis.com/zenn-user-upload/87faa5d13928-20211204.png)
 
 ![画像3](https://storage.googleapis.com/zenn-user-upload/e6dd877255f2-20211204.png)
 
-- プロジェクト名とパスワードを入力し、リージョンを指定 (Tokyo も存在します)
-  ![画像4](https://storage.googleapis.com/zenn-user-upload/143ee560077f-20211204.png)
+- プロジェクト名とパスワードを入力し、リージョンを指定します。 (Tokyo も存在します。)
+
+![画像4](https://storage.googleapis.com/zenn-user-upload/143ee560077f-20211204.png)
+
+<!-- # チュートリアルをやってみる -->
+
+## データベーススキーマの設定
+
+- 今回は「User Management Starter」のクイックスタートを使用します。
+
+![User Management Starter](https://storage.googleapis.com/zenn-user-upload/75dc4c0a38ed-20211211.png)
+
+- 「RUN」を押下してクエリを実行します。
+
+![クエリ実行](https://storage.googleapis.com/zenn-user-upload/9ddd5a7db4d8-20211211.png)
+
+- テーブルが作成されます。
+
+![テーブル](https://storage.googleapis.com/zenn-user-upload/20bbeb38bd85-20211211.png)
+
+<!-- Get the API Keys# -->
+
+## API キーの取得
+
+- 「設定」->「API」から Config URL と API keys を確認します。
+
+![API setting](https://storage.googleapis.com/zenn-user-upload/2808f68f4684-20211212.png)
 
 ## Next.js で新規プロジェクト作成
 
-`create-next-app`を使って、プロジェクトを新規作成します。
+- `create-next-app`を使って、プロジェクトを新規作成します。
 
 ```
 npx create-next-app@latest --typescript
 ```
 
-# チュートリアルをやってみる
-
-<!-- Set up the database schema# -->
-- Set up the database schema#
-
-<!-- Get the API Keys# -->
-- Get the API Keys#
-
-- supabase-js のインストール
+- supabase-js をインストールします
 
 ```bash
 npm install @supabase/supabase-js
 ```
 
+https://github.com/supabase/supabase-js
+
+- Next.js のプロジェクト配下に`.env.local`ファイルを作成し、先程の Config URL と API keys を記述します。
+
 ```text: .env.local
-NEXT_PUBLIC_SUPABASE_URL=https://xxxxxxxxxxx.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=xxxxxxxxxxxxxxxxxxxx
+# Config URL
+NEXT_PUBLIC_SUPABASE_URL=https://njpurhbadbaebzwbwwyp.supabase.co
+# API keys
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzODExMTQzMywiZXhwIjoxOTUzNjg3NDMzfQ.2oDN82WfOnmmDrELxL1i3Ugh442QXB1vLrLJwQfKvr0
 ```
 
 ```ts: supabaseClient.ts
@@ -83,19 +122,45 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 ```
 
-## テーブル作成
+# 機能作成
 
 ## サインイン
 
 ユーザーは E メールまたは OAuth のいずれかでサインインできます。
 パスワードなしでメールを提供した場合、ユーザーにはマジックリンクが送信されます。(今回はこれ)
+デフォルトでは、60 秒に 1 回マジックリンクを要求できます。
 
 ```tsx: Auth.tsx
 const { error } = await supabase.auth.signIn({ email })
 ```
 
-実際に下記のようなメールが送られてきました。
+:::details email に useState を使ってフォームに入力されたアドレスを入れています。
+
+```tsx: Auth.tsx
+// ここに詳細を表示する
+```
+
+:::
+
+:::details パスワードありの場合
+
+```tsx: Auth.tsx
+const { error } = await supabase.auth.signIn({
+  email: 'example@email.com',
+  password: 'example-password',
+})
+```
+
+:::
+
+実際にデフォルトでは、下記のようなメールが送られてきました。
 ![マジックリンクのメール](https://storage.googleapis.com/zenn-user-upload/9e1dd99cdf7e-20211206.png)
+
+<!-- メールの内容も変更でき、実際に変更してみました。 -->
+<!-- ここうまくいかない -->
+
+
+
 
 サードパーティのプロバイダを利用したサインインは主に下記をサポートしています。(一部抜粋)
 
@@ -103,6 +168,8 @@ const { error } = await supabase.auth.signIn({ email })
 - Google
 - GitLab
 - Bitbucket
+
+https://supabase.com/docs/guides/auth/intro
 
 ## サインインしたユーザの情報表示
 
@@ -115,3 +182,7 @@ let { data, error, status } = await supabase
     .eq('id', user.id)
     .single()
 ```
+
+# おわりに
+
+明日は、XXXXX さんで XXXXXX です！
