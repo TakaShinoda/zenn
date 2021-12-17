@@ -27,7 +27,7 @@ published: true
 
 # 今回のゴール
 
-[Quickstart: Next.js](https://supabase.com/docs/guides/with-nextjs)を参照して、実際に supabase のプロジェクトを作成し、
+[Quickstart: Next.js](https://supabase.com/docs/guides/with-nextjs)を参照して、実際に Supabase のプロジェクトを作成し、
 Next.js を使って認証機能を作成します。
 
 ![ログインページ](https://storage.googleapis.com/zenn-user-upload/67e1e77b7bfb-20211218.png)
@@ -392,7 +392,7 @@ let { error } = await supabase.from('profiles').upsert(updates, {
 
 ## プロフィール画像
 
-プロフィール画像を supabase のストレージにアップロード・ダウンロードするコンポーネントです。
+プロフィール画像を Supabase のストレージにアップロード・ダウンロードするコンポーネントです。
 `Account.tsx`の子コンポーネントとして設置します。
 
 ```tsx: Avatar.tsx
@@ -407,7 +407,7 @@ let { error: uploadError } = await supabase.storage
     .upload(filePath, file) // filePath: アップロードするファイルのパス, file: ファイルの本体
 ```
 
-実際に supabase のストレージに画像がアップロードされているのが確認できます。
+実際に Supabase のストレージに画像がアップロードされているのが確認できます。
 ![ストレージ](https://storage.googleapis.com/zenn-user-upload/8285ee75bd33-20211218.png)
 
 ## ログインページの作成
@@ -454,7 +454,7 @@ export default Home
 
 [^1]:
     メールの内容を変更する際 CORS error になっていました。
-    この事象は GitHub の Issue や Discussions をみても解決できなかったので supabase のサポートに確認中です。進捗があり次第この記事に加筆します。
+    この事象は GitHub の Issue や Discussions をみても解決できなかったので Supabase のサポートに確認中です。進捗があり次第この記事に加筆します。
 
 # おわりに
 
