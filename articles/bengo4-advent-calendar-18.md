@@ -465,5 +465,5 @@ Supabase と Next.js を使って認証機能を作成しました。
 今回使用したコードは下記リポジトリにあります。
 https://github.com/TakaShinoda/supabase-sample
 
-明日は、[@NaokiTsuchiya](https://qiita.com/NaokiTsuchiya) さんです！
+明日は、[@NaokiTsuchiya](https://qiita.com/NaokiTsuchiya) さんです。
 お楽しみに 🙋‍♂️
