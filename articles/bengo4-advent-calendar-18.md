@@ -459,9 +459,8 @@ export default Home
 # おわりに
 
 Supabase と Next.js を使って認証機能を作成しました。
-個人的には、DB が PostgreSQL なので、Firebaseよりも親しみやすかったです。
+個人的には、DB が PostgreSQL なので、Firebase よりも親しみやすかったです。
 個人開発でもっと使ってみたいと思いアイデアを考える日々です。
 
 今回使用したコードは下記リポジトリにあります。
 https://github.com/TakaShinoda/supabase-sample
-
