@@ -1,4 +1,9 @@
 {
+    "plugins": {
+        "@textlint/markdown": {
+            "extensions": [".md"]
+        }
+    },
     "rules": {
         "preset-bengo4": true
     },
