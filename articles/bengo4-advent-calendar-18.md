@@ -100,7 +100,7 @@ GitHub でログイン後、「New Project」を選択してプロジェクト�
 npx create-next-app@latest --typescript
 ```
 
-さらに、supabase-js をインストールします。
+さらに、`supabase-js` をインストールします。
 
 ```bash
 npm install @supabase/supabase-js
