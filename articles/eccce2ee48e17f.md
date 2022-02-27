@@ -3,7 +3,7 @@ title: 'Error Boundary をやってみたい'
 emoji: '🔧'
 type: 'tech' # tech: 技術記事 / idea: アイデア
 topics: ['react', 'vue']
-published: false
+published: true
 ---
 
 # はじめに
