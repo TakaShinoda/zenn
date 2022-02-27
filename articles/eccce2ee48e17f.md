@@ -9,8 +9,9 @@ published: false
 # はじめに
 
 Error Boundary について [React 公式ドキュメント](https://ja.reactjs.org/docs/error-boundaries.html)で調べると、class component での使用方法が書いてあります。
-今回 functional component での使用方法と、Vue で同じ事がしたい時について調べた事をメモします。
-下記それぞれ Vite で環境構築して、フォールバック用の UI のレンダリングが出来る事を確認済みです。
+今回 functional component での使用方法と、Vue で同じ事がしたい時について調べたことをメモします。
+下記それぞれフォールバック用の UI のレンダリングができることを確認済みです。
+環境構築には vite を使用しています。
 
 # react-error-boundary
 
