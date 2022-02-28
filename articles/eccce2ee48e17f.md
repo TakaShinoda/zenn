@@ -135,6 +135,10 @@ const handleError = (err: any) => {
 
 https://github.com/dillonchanis/vue-error-boundary
 
+# おわりに
+今回使用したコードは下記リポジトリににあります。
+https://github.com/TakaShinoda/error-boundary-sample
+
 # 参考記事
 
 https://ja.reactjs.org/docs/error-boundaries.html
