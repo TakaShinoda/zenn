@@ -137,7 +137,7 @@ https://github.com/dillonchanis/vue-error-boundary
 
 # おわりに
 
-今回使用したコードは下記リポジトリににあります。
+今回使用したコードは下記リポジトリにあります。
 https://github.com/TakaShinoda/error-boundary-sample
 
 # 参考記事
