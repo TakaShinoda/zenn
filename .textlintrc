@@ -1,18 +1,18 @@
 {
-    "plugins": {
-        "@textlint/markdown": {
-            "extensions": [".md"]
-        }
-    },
-    "rules": {
-        "preset-bengo4": true
-    },
-    "prh": {
-        "rulePaths": [
-            "node_modules/textlint-rule-preset-bengo4/dict/prh_bengo4.yml",
-            "node_modules/textlint-rule-preset-bengo4/dict/prh_mistakes.yml",
-            "node_modules/textlint-rule-preset-bengo4/dict/prh_redundancy.yml",
-            "node_modules/textlint-rule-preset-bengo4/dict/prh_writing.yml"
-        ]
+	"plugins": {
+		"@textlint/markdown": {
+			"extensions": [".md"]
     }
+  },
+	"rules": {
+		"preset-bengo4": true
+  },
+  "prh": {
+    "rulePaths": [
+      "node_modules/textlint-rule-preset-bengo4/dict/prh_bengo4.yml",
+      "node_modules/textlint-rule-preset-bengo4/dict/prh_mistakes.yml",
+      "node_modules/textlint-rule-preset-bengo4/dict/prh_redundancy.yml",
+      "node_modules/textlint-rule-preset-bengo4/dict/prh_writing.yml"
+    ]
+  }
 }
