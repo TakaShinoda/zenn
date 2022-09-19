@@ -7,7 +7,7 @@ published: false
 ---
 
 # はじめに
-Next.js は i18n の機能をサポートしており、この機能を使う事で多言語でサイトを表示できます。
+Next.js は i18n の機能をサポートしており、この機能を使うことでサイトを多言語表示できます。
 
 https://nextjs.org/docs/advanced-features/i18n-routing
 
@@ -59,7 +59,7 @@ module.exports = {
 
 ```
 
-また、以下の環境で動作確認しています。
+また以下の環境で動作確認しています。
 ```
 "next": "^12.3.0",
 "react": "18.2.0",
