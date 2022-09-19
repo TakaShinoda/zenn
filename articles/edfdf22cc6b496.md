@@ -70,7 +70,7 @@ module.exports = {
 
 # テストする
 以下のように next/router をモックしテストを行います。
-```tsx: Profile.test.tsx
+```tsx: ProfileJa.test.tsx
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { Profile } from '../components/Profile'
@@ -91,4 +91,25 @@ describe('日本語での表示テスト', () => {
 })
 ```
 
-日本語の表示をテストしたいときは、`locale: 'ja'` に設定し、英語での表示をテストしたいときは、`locale: 'en'` にすることで表示内容のテストを行えるようになりました。
+英語での表示をテストしたいときは以下のように、`locale: 'en'` にすることでテストを行えるようになります。
+
+```tsx: ProfileEn.test.tsx
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { Profile } from '../components/Profile'
+
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      locale: 'en',
+    }
+  },
+}))
+
+describe('日本語での表示テスト', () => {
+  test('名前が表示されているか', () => {
+    render(<Profile />)
+    expect(screen.getByRole('heading')).toHaveTextContent('ボブ')
+  })
+})
+
