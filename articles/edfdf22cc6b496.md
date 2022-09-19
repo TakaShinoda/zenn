@@ -112,4 +112,4 @@ describe('英語での表示テスト', () => {
     expect(screen.getByRole('heading')).toHaveTextContent('Bob')
   })
 })
-
+```
