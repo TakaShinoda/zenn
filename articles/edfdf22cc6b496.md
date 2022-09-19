@@ -3,7 +3,7 @@ title: 'next/router をモックして、locale で表示切り替えしてい�
 emoji: '🐧'
 type: 'tech' # tech: 技術記事 / idea: アイデア
 topics: ['jest','nextjs']
-published: false
+published: true
 ---
 
 # はじめに
