@@ -106,7 +106,7 @@ jest.mock('next/router', () => ({
   },
 }))
 
-describe('日本語での表示テスト', () => {
+describe('英語での表示テスト', () => {
   test('名前が表示されているか', () => {
     render(<Profile />)
     expect(screen.getByRole('heading')).toHaveTextContent('Bob')
