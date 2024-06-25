@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "textlint": "npx textlint 'articles/**'"
+    "textlint": "npx textlint 'articles/**'",
+    "preview": "npx zenn preview",
+    "new:article": "npx zenn new:article"
   },
   "keywords": [],
   "author": "",
